@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EnricherFunction
+﻿namespace EnricherFunction
 {
     public static class Config
     {
@@ -16,6 +10,7 @@ namespace EnricherFunction
 
         // Cognitive Services Vision API used to process images
         public const string VISION_API_KEY = "";
+        public const string VISION_API_ENDPOINT = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0";
 
         // Cognitive Entity Linking Service
         public const string ENTITY_LINKING_API_KEY = "";

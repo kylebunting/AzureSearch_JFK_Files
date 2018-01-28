@@ -1,9 +1,7 @@
 ﻿using Microsoft.Azure.Search.Models;
 using Newtonsoft.Json.Linq;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Http;
 
 namespace SearchUI.Controllers
@@ -16,7 +14,6 @@ namespace SearchUI.Controllers
         public JObject GetFDNodes(string q)
         {
             // Calculate nodes for 3 levels
-
             JObject dataset = new JObject();
             int MaxEdges = 20;
             int MaxLevels = 3;

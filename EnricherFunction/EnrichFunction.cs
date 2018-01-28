@@ -32,7 +32,7 @@ namespace EnricherFunction
         static EnrichFunction()
         {
             blobContainer = new ImageStore($"DefaultEndpointsProtocol=https;AccountName={Config.IMAGE_AZURE_STORAGE_ACCOUNT_NAME};AccountKey={Config.IMAGE_BLOB_STORAGE_ACCOUNT_KEY};EndpointSuffix=core.windows.net", Config.IMAGE_BLOB_STORAGE_CONTAINER);
-            visionClient = new Vision(Config.VISION_API_KEY);
+            visionClient = new Vision(Config.VISION_API_KEY, Config.VISION_API_ENDPOINT);
             var serviceClient = new SearchServiceClient(Config.AZURE_SEARCH_SERVICE_NAME, new SearchCredentials(Config.AZURE_SEARCH_ADMIN_KEY));
             indexClient = serviceClient.Indexes.GetClient(Config.AZURE_SEARCH_INDEX_NAME);
             linkedEntityClient = new EntityLinkingServiceClient(Config.ENTITY_LINKING_API_KEY);

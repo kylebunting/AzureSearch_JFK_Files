@@ -1,4 +1,5 @@
-﻿using Microsoft.ProjectOxford.Vision;
+﻿using EnricherFunction;
+using Microsoft.ProjectOxford.Vision;
 using Microsoft.ProjectOxford.Vision.Contract;
 using Newtonsoft.Json;
 using System;
@@ -18,9 +19,9 @@ namespace Microsoft.Cognitive.Skills
         VisionServiceClient visionClient;
         private string apiKey;
 
-        public Vision(string visionApiKey)
+        public Vision(string visionApiKey, string visionApiRoot)
         {
-            visionClient = new VisionServiceClient(visionApiKey);
+            visionClient = new VisionServiceClient(visionApiKey, visionApiRoot);
             apiKey = visionApiKey;
         }
 
@@ -139,7 +140,7 @@ namespace Microsoft.Cognitive.Skills
             var client = new HttpClient();
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", apiKey);
 
-            var uri = "https://westus.api.cognitive.microsoft.com/vision/v1.0/recognizeText?handwriting=true";
+            var uri = Config.VISION_API_ENDPOINT + "/recognizeText?handwriting=true";
 
             HttpResponseMessage response;
 
